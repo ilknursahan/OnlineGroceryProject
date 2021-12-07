@@ -14,17 +14,7 @@ namespace Business.Concrete
 
         private IProductDal _productDal;
 
-        public List<CardDto> products = new List<CardDto>();
-
-        public List<CardDto> Products
-        {
-            get
-            {
-                return products;
-            }
-            set { products = value; }
-        }
-
+      
         public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
@@ -53,41 +43,7 @@ namespace Business.Concrete
             _productDal.Delete(product);
         }
 
-        public void AddCard(CardDto cardDto)
-        {
-            if (Products.Any(x=>x.ProductId==cardDto.ProductId))
-            {
-                Products.FirstOrDefault(x => x.ProductId == cardDto.ProductId).Quantity++; 
-   
-            }
-            else
-            {
-               
-                Products.Add(cardDto);
-            }
-        }
-        public decimal GetTotal()
-        {
-            return ((decimal)Products.Sum(x => x.TotalPrice));
-        }
-
-
-    
-
-        public void DeleteCard(int id)
-        {
-
-            if (Products.FirstOrDefault(x => x.ProductId == id).Quantity>1)
-            {
-                Products.FirstOrDefault(x => x.ProductId == id).Quantity--;
-
-            }
-            else
-            {
-                CardDto card = Products.FirstOrDefault(x => x.product.ProductId == id);
-                Products.Remove(card);
-            }
-        }
+       
 
    
     }

@@ -15,5 +15,19 @@ namespace DataAccess.Concrete.EntityFramework
 
         }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<CardObject> CardObjects { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CardObject>(entity =>
+            {
+                entity.HasNoKey();
+            });
+          
+ 
+
+        }
+
     }
 }

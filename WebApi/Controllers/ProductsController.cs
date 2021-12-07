@@ -1,9 +1,11 @@
 ﻿using Business.Abstract;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace GetData.Controllers
@@ -14,7 +16,7 @@ namespace GetData.Controllers
     {
         IProductService _productService;
 
-        public List<CardDto> products = new List<CardDto>();
+   
         public ProductsController(IProductService productService)
         {
             _productService = productService;
@@ -29,28 +31,7 @@ namespace GetData.Controllers
 
         }
 
-        [HttpPost("addtocard")]
-        public IActionResult AddToCard(CardDto cardDto)
-        {
-            _productService.AddCard(cardDto);
-            return Ok();
-        }
-        [HttpPost("delete")]
-        public IActionResult Remove(int id)
-        {
-            
-            _productService.DeleteCard(id); 
-           
-            return Ok();
-        }
+       
 
-        [HttpGet("gettocard")]
-        public IActionResult GetToCard()
-        {
-
-            _productService.GetTotal();
-
-            return Ok();
-        }
     }
 }

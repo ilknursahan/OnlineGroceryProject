@@ -32,6 +32,8 @@ namespace GetData
             services.AddControllers();
             services.AddSingleton<IProductService, ProductManager>();
             services.AddSingleton<IProductDal, EfProductDal>();
+            services.AddSingleton<ICardObjectService, CardObjectManager>();
+            services.AddSingleton<ICardIObjectDal, EfCardIObjectDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

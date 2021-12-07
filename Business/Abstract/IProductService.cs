@@ -11,13 +11,13 @@ namespace Business.Abstract
         List<Product> GetList();
         Product Get(int id);
 
-        decimal GetTotal();
+        //decimal GetTotal();
         void Add(Product product);
         void Update(Product product);
         void Delete(Product product);
 
-        void AddCard(CardDto cardDto);
+        //void AddCard(CardDto cardDto);
         
-        void DeleteCard(int id);
+        //void DeleteCard(int id);
     }
 }
